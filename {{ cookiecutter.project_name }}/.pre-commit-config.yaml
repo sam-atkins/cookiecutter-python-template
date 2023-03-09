@@ -1,0 +1,36 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  - id: check-yaml
+  - id: check-toml
+  - id: check-docstring-first
+  - id: debug-statements
+  - id: check-merge-conflict
+  # uncomment to protect main branches
+  # - id: no-commit-to-branch
+  #   # no-commit-to-branch protects `main` and `master` by default if args not provided
+  #   args: [--branch, main, --branch, master, --branch, trunk]
+- repo: https://github.com/pdm-project/pdm
+  rev: 2.4.7 # a PDM release exposing the hook
+  hooks:
+  - id: pdm-lock-check
+- repo: https://github.com/asottile/blacken-docs
+  rev: v1.12.1
+  hooks:
+  - id: blacken-docs
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  # must run before Black and other formatting tools.
+  # Ruff version.
+  rev: '{{ cookiecutter.ruff_version }}'
+  hooks:
+  - id: ruff
+    args: [--fix, --exit-non-zero-on-fix]
+- repo: https://github.com/psf/black
+  rev: '{{ cookiecutter.black_version }}'
+  hooks:
+  - id: black

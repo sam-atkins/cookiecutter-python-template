@@ -1,0 +1,10 @@
+{
+    "author_name": "Sam Atkins",
+    "black_version": "22.12.0",
+    "email": "",
+    "licence": "MIT",
+    "project_name": "python-project",
+    "ruff_version": "v0.0.250",
+    "top_level_source_dir_name": "src",
+    "version": "0.1.0"
+}

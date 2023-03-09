@@ -1,0 +1,19 @@
+# https://taskfile.dev
+version: '3'
+
+tasks:
+
+  install:
+    cmds:
+      - pdm install
+      - pre-commit install
+
+  fmt:
+    desc: "Formats code using ruff and black"
+    cmds:
+     - ruff --fix .
+     - black .
+
+  test:
+    cmds:
+     - pdm run pytest -v tests
