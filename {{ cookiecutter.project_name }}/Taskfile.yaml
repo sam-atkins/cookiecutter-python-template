@@ -2,9 +2,15 @@
 version: '3'
 
 tasks:
+  default:
+    cmds:
+      - task: fmt
+      - task: test
 
   install:
+    desc: "Installs dependencies and pre-commit"
     cmds:
+      - mkdir -p __pypackages__
       - pdm install
       - pre-commit install
 
@@ -15,5 +21,6 @@ tasks:
      - black .
 
   test:
+    desc: "Run tests"
     cmds:
      - pdm run pytest -v tests
